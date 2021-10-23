@@ -1,0 +1,28 @@
+
+
+new="dotnet new"
+thatGener=$1
+pathGener=$2
+
+$new $thatGener -o $pathGener
+shift
+shift
+
+
+for param in $@
+do
+if [[ ${param:1} = "git" ]]
+then
+  git init $pathGener
+  dotnet new git -o $pathGener
+  cd $pathGener;>README.MD; git add .;git commit -m initial-commit; cd ..
+  
+else
+$new ${param:1} -o $pathGener/$pathGener.${param:1}
+fi
+if [[ $thatGener = "sln" ]] && [[ ${param:1} != "git" ]]
+then
+  dotnet sln $pathGener/$pathGener.sln add $pathGener/$pathGener.${param:1}/$pathGener.${param:1}.csproj
+fi
+done
+
