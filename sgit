@@ -1,0 +1,8 @@
+#!/bin/bash
+
+read -p "Enter directory name: " directoryName
+
+if ! [ -d $directoryName ]
+then
+echo -e "Directory \033[31m$directoryName\033[37m not found. Create directore $directoryName"
+fi
