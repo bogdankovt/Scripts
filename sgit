@@ -1,8 +1,22 @@
 #!/bin/bash
 
+red="\033[31m"
+green="\033[32m"
+default="\033[37m"
+
+echo ''
 read -p "Enter directory name: " directoryName
+
 
 if ! [ -d $directoryName ]
 then
-echo -e "Directory \033[31m$directoryName\033[37m not found. Create directore $directoryName"
+echo -e "\nDirectory $red $directoryName $default not found. Create directore $directoryName"
+git init $directoryName
 fi
+
+echo ''
+read -p "(*$(git config --global user.name)) Enter autor name for this repo: " autorName
+read -p "(*$(git config --global user.email)) Enter autor email for this repo: " autorEmail
+git config user.name $autorName
+git config user.email $autorEmail
+
