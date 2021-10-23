@@ -14,5 +14,9 @@ echo -e "\nDirectory $red $directoryName $default not found. Create directore $d
 git init $directoryName
 fi
 
-
+echo ''
+read -p "(*$(git config --global user.name)) Enter autor name for this repo: " autorName
+read -p "(*$(git config --global user.email)) Enter autor email for this repo: " autorEmail
+git config user.name $autorName
+git config user.email $autorEmail
 
