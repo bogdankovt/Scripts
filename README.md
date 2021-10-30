@@ -2,7 +2,7 @@
 Добавить в .bashrc путь к поиску скриптов dir/dir/scripts
 
     PATH=$PATH:/home/kovtun/Projects/Scripts
-    export $PATH
+    export PATH
 
 2. Создать скрипт в директории dir/dir/scripts при подключении нашей
 директории в PATH bash будет видеть все наши скрипты которые мы добавим:
